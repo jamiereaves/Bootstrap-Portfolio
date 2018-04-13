@@ -1,3 +1,5 @@
+/*container for the nav bar. set position to relative so child elements can be placed absolutely. set background/font color. set default
+font family for navbar. set width to 100% to occupy entire page. set appropriate height. set thin, grey bottom border.*/
 .navContainer{
     position:relative;
     background: #ffffff;
@@ -11,6 +13,7 @@
     margin-bottom: 0;
 }
 
+/*navbar is as high as it's container. navbar is centered with auto margin and is 4/5 as wide as the page.*/
 .navbar {
     height:100%;
     margin:0 auto;
@@ -20,8 +23,7 @@
 /*for links on the navbar. center text. set padding to place text vertically.
 when NORMAL/VISITED. set normal background/font color-background matches parent, so 
 only text is visible.
-when HOVER/ACTIVE. set accent background/font color. round top corner to mimic
-file folder tab. add subtle shadow to top and left sides to accent*/
+when HOVER/ACTIVE. set accent background/font color. round corners. add subtle shadow to top and left sides to accent*/
 .nav-link:link, .nav-link:visited{ 
     background:#ffffff;
     color: #777777;
@@ -38,6 +40,12 @@ file folder tab. add subtle shadow to top and left sides to accent*/
     box-shadow:1px 0px 2px 0px #777777;
 }
 
+.container-fluid {
+    padding:0;
+}
+
+/*set position of all rows to relative to allow child elements to be placed absolutely. rows take up 
+the entire page. center rows with auto margins.*/
 .row{
     position:relative;
     width:100%;
@@ -59,7 +67,7 @@ round top corners.*/
     position: absolute;
     bottom: 0;
     border-top-left-radius: 4px;
-    border-top-right-radius: 4px;    
+    border-top-right-radius: 4px;
 }
 
 /*Parent box for the main content of the page. set background/font colors. set appropriate
@@ -76,6 +84,7 @@ window width is altered. set thin, solid, grey border with very subtly rounded e
     border-radius: 2px;
 }
 
+/*parent box for the sidebar. same style as parent box for the main content (see above)*/
 #sideBar{
     background: #ffffff;
     color: #777777;
@@ -86,7 +95,6 @@ window width is altered. set thin, solid, grey border with very subtly rounded e
     border-color: #777777;
     border-width: 1px;
     border-radius: 2px;
-
 }
 
 /* header for the main content. set background/font colors. set padding/indentation to place 
@@ -106,6 +114,7 @@ text. thin, solid, grey border on the bottom only. set appropriate font.*/
     font-weight: bold;
 }
 
+/*header for the sidebar. same style as header for the main content (see above).*/
 #sideBarHeader {color:#4aaaa5;
     background: #ffffff;
     padding: 25px 20px 10px 0px;
@@ -117,31 +126,35 @@ text. thin, solid, grey border on the bottom only. set appropriate font.*/
     font-family: 'Georgia', Times, Times New Roman, serif;
     font-size: 1.5em;
     font-weight: bold;
-
 }
 
-/*set appropriate margins for the main content right/left: 20px bottom: 20px*/
+/*set appropriate margins for the main content right/left: 20px bottom: 25px*/
 .contentBody {
     margin: 0px 20px 25px 20px;
     background: #ffffff;
 }
 
+/*social links take up the entire subcolumn. margin set to space links apart, but not 
+so large that the links collapse strangely as the browser window and the parent box
+shrink.*/
 .socialLink{
     width:100%;
     margin:8px;
 }
 
+/*set spacer to be as wide as the page and 85px high. does not display, but keeps its
+position in the page layout.*/
 .spacer {
     width:100%;
     height:85px;
     visibility: hidden;
 }
 
-/*fix the footer to the bottom of the browser window. make footer as wide as the
+/*fix the footer to the bottom of the page so that the footer is not always visible. make footer as wide as the
 browser window. set height to 40 px. grey background. solid, teal top border with
 a larger width than the header border.*/
 .footer {
-    position: fixed;
+    position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -165,12 +178,13 @@ align the text vertically*/
 
 /*set height/width for image. float left so that the text wraps appopriately.
 set the right and bottom margins to place text appropriately. round corners
-subtly, but more than main content box*/
+subtly, but more than main content box. set max height to auto so that the
+picture scales to the size of the browser window.*/
 #bioPhoto{
-    max-width: 250px;
-    max-height: 175px;
+    max-width: 40%;
+    max-height: auto;
     float: left;
-    margin: 0px 25px 15px 0px;
+    margin: 0px 15px 0px 0px;
     border-radius:3px;
 }
 
@@ -179,10 +193,10 @@ subtly, but more than main content box*/
     line-height: 1.5;
 }
 
-/*for name and email fields. set width to 100% parent container. set padding to
-give space within the field to make text more readable. set top and bottom 
-margins to create space vertically between fields. bs-bb so width/height aren't
-affected by padding/borders. round corners*/
+/*for name and email fields. set width to 100% parent container so that the text area 
+scales to the size of the browser window. set padding to give space within the field to 
+make text more readable. set top and bottom margins to create space vertically between fields. 
+bs-bb so width/height aren't affected by padding/borders. round corners*/
 .shortForm{
     width: 100%;
     padding:5px 5px;
@@ -194,7 +208,8 @@ affected by padding/borders. round corners*/
 /*for message field. set padding to give space within the field to make text more 
 readable. set top and bottom margins to create space vertically between fields. bs-bb 
 so width/height aren't affected by padding/borders. round corners. Resize:none - so
-the size of the message field can't be collapsed.*/
+the size of the message field can't be collapsed. set width to 100% of parent container
+so that the text area scales to the size of the browser window.*/
 .longForm{
     padding: 5px 5px;
     margin: 8px 0;
@@ -290,8 +305,8 @@ margins to create space between elements. round corners. set position relative s
 children elements can be positioned. create solid, teal border. relatively pronounced
 grey shadow to indicate active link.*/
 .portLink{
-    width:274px;
-    height:207px;
+    width:260px;
+    height:210px;
     float:left;
     margin:20px 10px 25px;
     border-radius: 20px;    
@@ -302,7 +317,9 @@ grey shadow to indicate active link.*/
     box-shadow:5px 5px 3px 0px grey;
     overflow: auto;
 }
-    
+ 
+/*sets a large right margin for even numbered links so that there are at most two links
+per row.*/
 .portLink:nth-child(even) {
         margin-right: 40px;
     }
@@ -310,11 +327,10 @@ grey shadow to indicate active link.*/
 
 /*for portfolio link images. make photo fill entire parent container. set border radius slightly smaller than 
 parent's to remove weird empty space at corners.*/
-.portPhoto {
+#portPhoto {
     width:100%;
     height:100%;
     border-radius:15px;
-
 }
 
 /*for portfolio link descriptions. set postion relative to parent (link) container. adjust top
@@ -324,15 +340,15 @@ large font size. hide element when not HOVER/ACTIVE. set transition time to crea
 natural transition between states.*/
 .imgDesc {
     position: absolute;
-    top:100px;
-    bottom:40px;
+    top:80px;
+    bottom:20px;
     left:0;
     right:0;
     text-align:center;
     padding: 22px 0 0 0;
     background: #4aaaa5;
     color: #ffffff;
-    font-size:24px;
+    font-size: 24px;
     visibility:hidden;
     opacity:0;
     transition:opacity .4s, visibility .2s;
@@ -368,4 +384,18 @@ natural transition between states.*/
 /*when portfolio link is clicked, increase opacity of portfolio link image slightly (70%)*/
 .portLink:active .portPhoto{
     opacity: 0.7;
+}
+
+/*i tried really hard not to use media queries with this page, but i couldn't figure out
+another way to keep the columns from collapsing to the left for screens narrower than
+768px.  if i comment this out, the website is still functional but not as aesthetically 
+pleasing.*/
+@media only screen and (max-width:768px) {
+    #mainContent {
+        margin:5px 10px;
+    }
+
+    #sideBar {
+        margin:5px 10px;
+    }
 }
