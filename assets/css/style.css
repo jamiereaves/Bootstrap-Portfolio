@@ -20,6 +20,11 @@ font family for navbar. set width to 100% to occupy entire page. set appropriate
     width:80%;
 }
 
+/*this should be hidden for all screen widths above 576px*/
+header, .headerContent {
+    display:none;
+}
+
 /*for links on the navbar. center text. set padding to place text vertically.
 when NORMAL/VISITED. set normal background/font color-background matches parent, so 
 only text is visible.
@@ -40,6 +45,7 @@ when HOVER/ACTIVE. set accent background/font color. round corners. add subtle s
     box-shadow:1px 0px 2px 0px #777777;
 }
 
+/*eliminates padding for bootstrap container so that the width is truly 100%*/
 .container-fluid {
     padding:0;
 }
@@ -150,11 +156,11 @@ position in the page layout.*/
     visibility: hidden;
 }
 
-/*fix the footer to the bottom of the page so that the footer is not always visible. make footer as wide as the
+/*fix the footer to the bottom of the browser window. make footer as wide as the
 browser window. set height to 40 px. grey background. solid, teal top border with
 a larger width than the header border.*/
 .footer {
-    position: absolute;
+    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -386,10 +392,17 @@ natural transition between states.*/
     opacity: 0.7;
 }
 
-/*i tried really hard not to use media queries with this page, but i couldn't figure out
-another way to keep the columns from collapsing to the left for screens narrower than
-768px.  if i comment this out, the website is still functional but not as aesthetically 
-pleasing.*/
+/*******************************************************************************************************
+i tried really hard not to use media queries with this page, but i ran into two issues that i
+wasn't able to fix with css alone. i couldn't figure out another way to keep the columns from collapsing 
+to the left for screens narrower than 768px, so i set the margins for the main content and sidebar to 
+center those sections on smaller screens. i also found that if i narrowed the screen width beyond 576px,
+the navbar links would disappear no matter what i did.  to fix this i set a media query to replicate my small
+screen header from the responsive portfolio below screen widths of 576px.  if these media queries and the corresponding 
+html for the alternate header are commented out the website is still functional but not as aesthetically pleasing.
+**********************************************************************************************************/
+
+/*media query to fix left justification of main content and sidebar below width:768px*/
 @media only screen and (max-width:768px) {
     #mainContent {
         margin:5px 10px;
@@ -398,4 +411,86 @@ pleasing.*/
     #sideBar {
         margin:5px 10px;
     }
+}
+
+/*media query to fix disappearing navbar link below width:576px*/
+@media only screen and (max-width:576px){
+    /*hide navbar container contents so they no longer hold a place
+    on the page*/
+    .navContainer {
+        display:none;
+    }
+   
+    /*set header style as in the responsive portfolio. make visible*/
+    header{
+        height:130px;
+        background: #ffffff;
+        color: #eee;
+        width: 100%;
+        border-bottom-style: solid;
+        border-bottom-color: #777777;
+        border-bottom-width: 2px;
+        font-family: 'Georgia', Times, "Times New Roman", serif;
+        margin-bottom: 0px;
+        visibility: visible;
+        display:inline-block;
+        position:relative;
+    }
+    
+    /*set header content to fill entire screen. make visible.*/
+    .headerContent {
+        width:100%;
+        height:130px;
+        display:inline-block;
+        visibility: visible;
+    }
+    
+    /*set header name to full screen width and half the height of the parent container. position
+    absolutely at the top of the parent container. eliminate rounded edges. center text.*/
+    #headerName{
+        width:100%;
+        height:50%;
+        position:absolute;
+        top:0;
+        text-align:center;
+    }
+   
+    /*set topnav to full screen width and half the height of the parent container. position absolutely 
+    at the top of the parent container. eliminate margins and float left instead of right. set display
+    to flex so that links within can easily be spaced horizontally and center these links within the 
+    topnav. set overflow to hidden to retain links within header*/
+    .topnav {
+        width: 100%;
+        height:50%;
+        float:left;
+        position:absolute;
+        bottom:0;
+        margin:0;
+        display:flex;
+        justify-content:center;
+        overflow:hidden;
+    }
+
+    /*set style of links as in the responsive portfolio. set width of topnav links to occupy 1/3 of parent 
+    container. set margin to auto to evenly space. align links along the bottomm of the parent container.*/
+    .altLink {
+        background: #ffffff;
+        color: #777777;
+        padding: 25px 20px;
+        text-align: center;
+        text-decoration: none;
+        width: 33%;
+        margin:auto;
+        bottom:0;
+        }
+    
+    /*set HOVER/ACTIVE link style as in the responsive portfolio.*/
+    .altLink:hover, .altLink:active {
+        background: #4aaaa5;
+        color: #eee;
+        padding: 25px 20px;
+        text-align: center;
+        text-decoration: none;
+        }
+
 }

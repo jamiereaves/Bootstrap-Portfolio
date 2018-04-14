@@ -42,8 +42,25 @@
                       </ul>
                     </div>
             </nav>
-
     </div>
+
+    <!--alternate header to fix problem where links disappear for screens smaller than 576px.
+    couldn't figure out an alternate fix that didn't include media queries. ONLY DISPLAYS ON
+    SCREENS <576px & CAN BE COMMENTED OUT-->
+    <header>
+        <section class="headerContent">
+            <h1 id="headerName">Jamie Reaves</h1>
+            <!--navigation bar linking the three component pages-->
+            <nav class="topnav">
+                <!--create three links: a placeholder link for the current page & links
+                to the other two pages-->
+                <a class="altLink" href="index.html">About</a>
+                <a class="altLink" href="contact.html">Contact</a>
+                <a class="altLink" href="#">Portfolio</a>
+            </nav>
+        </section>
+    </header>
+
     <!--set a break between navbar and content-->
     <br><br>
     <!--full width container for bootstrap rows and columns i.e. the rest of the page-->   
@@ -75,7 +92,7 @@
                             </a>
     
                             <a class="portLink" href"#">
-                                <img id="portPhoto" src="assets/images/coast.jpg" alt="Rutgers Info widget">
+                                <img id="portPhoto" src="assets/images/cricket.jpg" alt="Rutgers Info widget">
                                 <p class="imgDesc">Rutgers Info Widget</p>
                             </a>
                         
